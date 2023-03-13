@@ -1,15 +1,21 @@
 let qNumber = 0;
 
-let n1 = Math.floor(Math.random() * 10);
-let n2 = Math.floor(Math.random() * 10);
+let n1, n2;
 
 function randomQuestion() {
-    if (n1 >= n2) {
-        document.getElementById("questionLabel").innerHTML = "What is " + n1 + "-" + n2 + "=?";
-    } else {
-        document.getElementById("questionLabel").innerHTML = "What is " + n2 + "-" + n1 + "=?";
-    }
+    randomNumbers();
+    document.getElementById("questionLabel").innerHTML = "What is " + n1 + "-" + n2 + "=?";
 };
+
+function randomNumbers() {
+    n1 = Math.floor(Math.random() * 10);
+    n2 = Math.floor(Math.random() * 10);
+    if (n1 < n2) {
+        let temp = n1;
+        n1 = n2;
+        n2 = temp;
+    }
+}
 
 let quiz = [
     {question: "What is 10-2=?", answer:8, studentAnswer: 0},
