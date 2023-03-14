@@ -32,18 +32,38 @@ function randomNumbers() {
 function check() {
     let studentInput = document.getElementById("answer").value;
     quiz[qNumber].studentAnswer = studentInput;
-    if(n1-n2 == studentInput) {
-        alert("Your answer is CORRECT!");
-        points++;
+
+    if (studentInput == "") {
+        alert("Please enter a value");
     } else {
-        alert("Your answer is INCORRECT!");
-    }
-    qNumber++;
-    if (qNumber >= 5) {
-        document.getElementById("Check").remove();
-        document.getElementById("form").remove();
-    } else {
-        randomQuestion();
+        if(n1-n2 == studentInput) {
+            alert("Your answer is CORRECT!");
+            points++;
+        } else {
+            alert("Your answer is INCORRECT!");
+        }
+        qNumber++;
+        if (qNumber >= 5) {
+            document.getElementById("Check").remove();
+            document.getElementById("form").remove();
+    
+            const title = document.createElement("h2");
+            const titleText = document.createTextNode("Summary:");
+            title.appendChild(titleText);
+    
+            const score = document.createElement("p");
+            const scoreText = document.createTextNode("Your final score is " + points + "/5");
+            score.appendChild(scoreText);
+    
+            const sumDiv = document.getElementById("summary");
+            sumDiv.appendChild(title);
+            sumDiv.appendChild(score);
+    
+    
+    
+        } else {
+            randomQuestion();
+        }
     }
 };
 
