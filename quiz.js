@@ -47,17 +47,24 @@ function check() {
             document.getElementById("Check").remove();
             document.getElementById("form").remove();
     
+            const sumDiv = document.getElementById("summary");
+
             const title = document.createElement("h2");
             const titleText = document.createTextNode("Summary:");
             title.appendChild(titleText);
+            sumDiv.appendChild(title);
     
             const score = document.createElement("p");
             const scoreText = document.createTextNode("Your final score is " + points + "/5");
             score.appendChild(scoreText);
-    
-            const sumDiv = document.getElementById("summary");
-            sumDiv.appendChild(title);
             sumDiv.appendChild(score);
+
+            for (let i=0; i<quiz.length; i++) {
+                let sumLine = document.createElement("p");
+                let sumLineText = document.createTextNode((i+1) + ". " + quiz[i].question);
+                sumLine.appendChild(sumLineText);
+                sumDiv.appendChild(sumLine);
+            }
     
     
     
