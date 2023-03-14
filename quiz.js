@@ -39,11 +39,9 @@ function check() {
     }
     qNumber++;
     randomQuestion();
-    /*
-    if (qNumber == 4) {
-        document.getElementById("form").remove();
+    if(qNumber == 4) {
+        document.getElementById("Check").remove();
     }
-    */
 };
 
 window.onload = randomQuestion;
