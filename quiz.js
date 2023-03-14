@@ -61,8 +61,15 @@ function check() {
 
             for (let i=0; i<quiz.length; i++) {
                 let sumLine = document.createElement("p");
-                let sumLineText = document.createTextNode((i+1) + ". " + quiz[i].question);
-                sumLine.appendChild(sumLineText);
+                if (quiz[i].studentAnswer == quiz[i].answer) {
+                    let sumLineText = document.createTextNode((i+1) + ". "+  quiz[i].question + "=" + quiz[i].studentAnswer + 
+                    " and the answer is CORRECT!");
+                    sumLine.appendChild(sumLineText);
+                } else {
+                    let sumLineText = document.createTextNode((i+1) + ". "+  quiz[i].question + "=" + quiz[i].studentAnswer + 
+                    " and the answer is WRONG! It should have been " + quiz[i].answer);
+                    sumLine.appendChild(sumLineText);
+                }
                 sumDiv.appendChild(sumLine);
             }
     
