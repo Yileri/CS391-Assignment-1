@@ -1,10 +1,22 @@
 let qNumber = 0;
+let points = 0;
 
 let n1, n2;
 
+let quiz = [
+    {question: "", answer:0, studentAnswer: 0},
+    {question: "", answer:0, studentAnswer: 0},
+    {question: "", answer:0, studentAnswer: 0},
+    {question: "", answer:0, studentAnswer: 0},
+    {question: "", answer:0, studentAnswer: 0}
+];
+
 function randomQuestion() {
     randomNumbers();
+    document.getElementById("questionNumber").innerHTML = "Question " + (qNumber+1) + ":";
     document.getElementById("questionLabel").innerHTML = "What is " + n1 + "-" + n2 + "=?";
+    quiz[qNumber].question=n1 + "-" + n2;
+    quiz[qNumber].answer=n1-n2;
 };
 
 function randomNumbers() {
@@ -17,21 +29,21 @@ function randomNumbers() {
     }
 }
 
-let quiz = [
-    {question: "What is 10-2=?", answer:8, studentAnswer: 0},
-    {question: "What is 22-5=?", answer:17, studentAnswer: 0},
-    {question: "What is 7-3=?", answer:4, studentAnswer: 0},
-    {question: "What is 15-14=?", answer:1, studentAnswer: 0},
-    {question: "What is 13-4=?", answer:9, studentAnswer: 0}
-];
-
-
 function check() {
-    if(quiz[qNumber].answer == document.getElementById("answer").value) {
+    let studentInput = document.getElementById("answer").value;
+    quiz[qNumber].studentAnswer = studentInput;
+    if(n1-n2 == studentInput) {
         alert("Your answer is CORRECT!");
     } else {
         alert("Your answer is INCORRECT!");
     }
+    qNumber++;
+    randomQuestion();
+    /*
+    if (qNumber == 4) {
+        document.getElementById("form").remove();
+    }
+    */
 };
 
 window.onload = randomQuestion;

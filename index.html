@@ -8,12 +8,15 @@
     <body>
         <h1>Substraction Quiz</h1>
         <hr>
-        <h2>Question 1:</h2> 
-        <label for="answer" id="questionLabel">Eves</label>
-        <br>
-        <input type="number" name="answer" id="answer" min="0">
-        <br>
-        <br>
-        <input type="button" name="Check" value="Check" onclick="check()"/>
+        <!--<div id="summary"></div>-->
+        <form id="form">
+            <h2 id="questionNumber">Question 1:</h2> 
+            <label for="answer" id="questionLabel"></label>
+            <br>
+            <input type="number" name="answer" id="answer">
+            <br>
+            <br>
+            <input type="button" name="Check" id="Check" value="Check" onclick="check()"/>
+        </form>
     </body>
 </html>
