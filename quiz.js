@@ -34,13 +34,16 @@ function check() {
     quiz[qNumber].studentAnswer = studentInput;
     if(n1-n2 == studentInput) {
         alert("Your answer is CORRECT!");
+        points++;
     } else {
         alert("Your answer is INCORRECT!");
     }
     qNumber++;
-    randomQuestion();
-    if(qNumber == 4) {
+    if (qNumber >= 5) {
         document.getElementById("Check").remove();
+        document.getElementById("form").remove();
+    } else {
+        randomQuestion();
     }
 };
 
