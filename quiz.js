@@ -42,6 +42,7 @@ function check() {
         } else {
             alert("Your answer is INCORRECT!");
         }
+        document.getElementById("answer").value = "";
         qNumber++;
         if (qNumber >= 5) {
             document.getElementById("Check").remove();
